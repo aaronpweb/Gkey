@@ -80,3 +80,9 @@ Feel free to fork the repository, create a feature branch, and submit a Pull Req
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
+## Author 
+
+Aaron Teshale | ctc-181-26
+portofolio: https://aaronpweb.dev
