@@ -14,6 +14,7 @@ import {
   Zap,
   RotateCcw,
 } from "lucide-react";
+import { installTabs as INSTALL_TABS, siteConfig } from "@/config/site";
 
 function Github({ className = "w-4 h-4" }: { className?: string }) {
   return (
@@ -36,44 +37,10 @@ function Github({ className = "w-4 h-4" }: { className?: string }) {
 // 1. CONFIGURATION (Links & README Installation Commands)
 // ============================================================================
 const LINKS = {
-  githubRepo: "https://github.com/aaronpweb/gkey",
-  githubSponsors: "https://github.com/sponsors/aaronpweb",
-  authorProfile: "https://github.com/aaronpweb",
+  githubRepo: siteConfig.links.github,
+  githubSponsors: siteConfig.links.sponsors,
+  authorProfile: siteConfig.links.author,
 };
-
-const INSTALL_TABS = [
-  {
-    id: "quick",
-    label: "Quick Install (README)",
-    description: "Clone the repository and run the automated installer script.",
-    commands: `git clone https://github.com/aaronpweb/gkey.git
-cd gkey
-chmod +x install.sh
-sudo ./install.sh`,
-  },
-  {
-    id: "manual",
-    label: "Manual & Systemd Setup",
-    description: "Build from source and enable the background gkey daemon.",
-    commands: `git clone https://github.com/aaronpweb/gkey.git
-cd gkey
-# Ensure user has permissions to read /dev/input/event* and write /dev/uinput
-sudo usermod -aG input $USER
-# Install binary & systemd service
-sudo make install
-sudo systemctl enable --now gkey.service`,
-  },
-  {
-    id: "usage",
-    label: "CLI & Toggle Controls",
-    description: "Control gkey directly from your terminal or keybinding.",
-    commands: `# Check daemon status
-systemctl status gkey
-
-# Run directly in foreground for debugging evdev keycodes
-sudo gkey --verbose`,
-  },
-];
 
 // ============================================================================
 // 2. ETHIOPIC PHONETIC STATE MACHINE ENGINE (For Live Browser Demo)
@@ -396,6 +363,18 @@ export default function GkeyLandingPage() {
               className="hover:text-[#18181B] transition-colors"
             >
               Install
+            </a>
+            <a
+              href="/docs"
+              className="hover:text-[#18181B] transition-colors"
+            >
+              Docs
+            </a>
+            <a
+              href="/contribute"
+              className="hover:text-[#18181B] transition-colors"
+            >
+              Contribute
             </a>
             <a
               href="#sponsor"
@@ -1101,6 +1080,15 @@ export default function GkeyLandingPage() {
               className="text-[#B45309] hover:underline"
             >
               GitHub Sponsors
+            </a>
+            <a href="/docs" className="hover:text-[#18181B] transition-colors">
+              Documentation
+            </a>
+            <a
+              href="/contribute"
+              className="hover:text-[#18181B] transition-colors"
+            >
+              Contribute
             </a>
           </div>
         </div>

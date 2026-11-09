@@ -1,32 +1,42 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Noto_Sans_Ethiopic } from "next/font/google";
+import { siteConfig } from "@/config/site";
+import { StructuredData } from "@/components/seo/StructuredData";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-});
-
-const notoEthiopic = Noto_Sans_Ethiopic({
-  subsets: ["ethiopic"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-ethiopic",
-});
-
 export const metadata: Metadata = {
-  title: "gkey — Native Linux Ethiopic Phonetic Input Method",
-  description:
-    "Low-level Linux phonetic keyboard input method mapping English keystrokes into Ethiopic Fidel Unicode characters via evdev and deterministic state machine logic.",
+  metadataBase: new URL(siteConfig.siteUrl),
+  title: {
+    default: siteConfig.title,
+    template: "%s | gkey",
+  },
+  description: siteConfig.description,
+  keywords: [
+    "Ethiopic keyboard",
+    "Amharic Linux input",
+    "Linux phonetic input",
+    "Ge'ez keyboard",
+    "evdev",
+    "uinput",
+    "gkey",
+  ],
+  authors: [{ name: "Aaron Teshale", url: siteConfig.links.author }],
+  creator: "Aaron Teshale",
+  publisher: "gkey open source project",
   openGraph: {
-    title: "gkey — Kernel-Level Ethiopic Input for Linux",
-    description:
-      "Display-server agnostic Fidel phonetic input method powered by evdev, uinput, and deterministic finite state machines.",
+    title: siteConfig.title,
+    description: siteConfig.description,
     type: "website",
+    url: siteConfig.siteUrl,
+    siteName: "gkey",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary",
+    title: siteConfig.title,
+    description: siteConfig.description,
+  },
+  alternates: {
+    canonical: siteConfig.siteUrl,
   },
 };
 
@@ -38,8 +48,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable} ${notoEthiopic.variable} scroll-smooth`}
+      className="scroll-smooth"
     >
+      <head>
+        <StructuredData />
+      </head>
       <body className="bg-[#F8F7F4] text-[#18181B] antialiased selection:bg-[#3F6212]/15 selection:text-[#3F6212]">
         {children}
       </body>
