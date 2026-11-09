@@ -3,7 +3,7 @@ export const siteConfig = {
   title: "gkey — Native Linux Ethiopic Phonetic Input",
   description:
     "Type Ethiopic naturally on Linux with a lightweight phonetic input method built for evdev, uinput, Wayland, X11, and TTY workflows.",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://gkey.dev",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://gkey.aaronpweb.dev",
   links: {
     github: "https://github.com/aaronpweb/gkey",
     sponsors: "https://github.com/sponsors/aaronpweb",
