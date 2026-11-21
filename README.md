@@ -24,22 +24,6 @@ Gkey is a custom keyboard framework designed to bring seamless, system-level Ge'
 * **Stateful Typing Engine:** Employs a custom Prefix Tree (Trie) data structure and state machine to efficiently resolve multi-key sequences and handle dynamic Ge'ez character modifications in real-time.
 * **Clean Architecture:** The core typing logic is completely decoupled from the OS integrations, making it highly testable and extensible for future platforms.
 
-## Project Structure
-
-```text
-Gkey/
-├── engine/
-│   ├── trie.py
-│   ├── state_machine.py
-│   └── sera_rules.py
-├── ibus_engine/
-│   ├── main.py
-│   └── geez.xml
-├── tests/
-│   └── test_terminal.py
-└── install.sh
-```
-
 ## Installation (Linux / Ubuntu)
 
 ### 1. Install System Dependencies
